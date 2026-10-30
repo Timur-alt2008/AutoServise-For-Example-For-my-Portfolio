@@ -1,0 +1,39 @@
+/* Дизайн-система EXAMPLE Auto Service. Палитра — из технического задания. */
+:root {
+  --graphite: #17191c;
+  --metal: #23272b;
+  --metal-2: #2c3136;
+  --light: #f4f4f1;
+  --white: #ffffff;
+  --orange: #e87532;
+  --orange-hover: #f08a4d;
+  --orange-press: #cf6424;
+  --grey: #858b91;
+
+  /* Текст: серый #858B91 на светлом фоне слишком бледный, поэтому для мелкого текста — более тёмный оттенок */
+  --text: #23272b;
+  --text-muted: #565c63;
+  --text-on-dark: #f4f4f1;
+  --text-muted-on-dark: #a3a9af;
+
+  --line-light: rgba(23, 25, 28, 0.14);
+  --line-dark: rgba(255, 255, 255, 0.14);
+
+  --ok: #2f8f5b;
+  --danger: #c8402c;
+
+  --font-head: 'Manrope Variable', 'Manrope', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+
+  --container: 1200px;
+  --gutter: clamp(16px, 4.5vw, 32px);
+  --section-y: clamp(56px, 9vw, 112px);
+  --radius: 6px;
+  --radius-lg: 10px;
+  --topbar-h: 36px;
+  --header-h: 68px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-2: 0 24px 60px rgba(0, 0, 0, 0.35);
+}

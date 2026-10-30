@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://timur-alt2008.github.io/AutoServise-For-Example-For-my-Portfolio/sitemap.xml

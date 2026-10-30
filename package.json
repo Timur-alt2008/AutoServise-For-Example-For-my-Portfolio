@@ -1,0 +1,35 @@
+{
+  "name": "example-auto-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EXAMPLE Auto Service (демо-сайт для портфолио) + Web Inspiration Analyzer",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c yellow,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch --disable-warning=ExperimentalWarning server/src/index.ts",
+    "dev:client": "vite --config client/vite.config.ts",
+    "build": "vite build --config client/vite.config.ts",
+    "build:pages": "vite build --config client/vite.config.ts --base ./ --outDir ../docs --emptyOutDir",
+    "start": "node --disable-warning=ExperimentalWarning server/src/index.ts",
+    "typecheck": "tsc -p client/tsconfig.json && tsc -p server/tsconfig.json",
+    "test": "node --disable-warning=ExperimentalWarning --test \"server/tests/*.test.ts\""
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.0",
+    "@fontsource-variable/manrope": "^5.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.9.0",
+    "vite": "^6.3.0"
+  }
+}
