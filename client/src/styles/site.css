@@ -542,8 +542,7 @@ body.site-body {
   animation: heroIn 1s var(--ease-out) both;
 }
 .hero__line:last-child {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(245, 245, 245, 0.9);
+  color: var(--text-2);
 }
 .hero__lead {
   max-width: 560px;
@@ -1347,12 +1346,11 @@ body.site-body {
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--line-3);
-  transition: -webkit-text-stroke-color 0.4s;
+  color: var(--card-2);
+  transition: color 0.4s;
 }
 .tstep:hover .tstep__num {
-  -webkit-text-stroke-color: var(--accent);
+  color: var(--accent);
 }
 .tstep__dot {
   position: relative;
@@ -2407,9 +2405,6 @@ body.site-body {
   .hero__kicker {
     margin-bottom: 20px;
   }
-  .hero__line:last-child {
-    -webkit-text-stroke-width: 1px;
-  }
   .hero__lead {
     margin-top: 20px;
   }
@@ -2568,7 +2563,7 @@ body.site-body {
     grid-column: 2;
     grid-row: 1 / span 2;
     font-size: 1.6rem;
-    -webkit-text-stroke-color: var(--text-3);
+    color: var(--text-3);
   }
   .tstep__title {
     grid-column: 3;
