@@ -541,9 +541,6 @@ body.site-body {
   display: block;
   animation: heroIn 1s var(--ease-out) both;
 }
-.hero__line:last-child {
-  color: var(--text-2);
-}
 .hero__lead {
   max-width: 560px;
   margin-top: 28px;
