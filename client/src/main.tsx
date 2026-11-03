@@ -9,7 +9,7 @@ import './styles/site.css';
 import './styles/analyzer.css';
 
 const root = document.getElementById('root');
-if (!root) throw new Error('Не найден элемент #root');
+if (!root) throw new Error('Element #root not found');
 createRoot(root).render(
   <StrictMode>
     <App />
