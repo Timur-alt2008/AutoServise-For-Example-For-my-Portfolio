@@ -26,7 +26,7 @@ export function App() {
 
   if (isAnalyzer) {
     return (
-      <Suspense fallback={<div className="an-boot" role="status">Загрузка панели…</div>}>
+      <Suspense fallback={<div className="an-boot" role="status">Loading panel…</div>}>
         <AnalyzerApp hash={hash} />
       </Suspense>
     );

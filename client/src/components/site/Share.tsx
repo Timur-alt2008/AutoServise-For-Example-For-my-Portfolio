@@ -21,7 +21,7 @@ export function ShareLinks() {
     <ul className="social">
       {links.map(({ label, href, Icon }) => (
         <li key={label}>
-          <a className="social__link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`Поделиться в ${label}`} title={`Поделиться в ${label}`}>
+          <a className="social__link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${label}`} title={`Share on ${label}`}>
             <Icon />
           </a>
         </li>

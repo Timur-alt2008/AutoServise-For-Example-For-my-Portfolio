@@ -8,17 +8,17 @@ import { ShareLinks } from './Share';
 function Privacy() {
   return (
     <div className="legal">
-      <h2 id="privacy-title" className="legal__title">Политика конфиденциальности</h2>
-      <p className="legal__fine">Демонстрационный текст для портфолио. Перед запуском настоящего сайта его нужно заменить документом, подготовленным юристом.</p>
-      <h3>Какие данные мы получаем</h3>
-      <p>Имя, телефон, данные автомобиля и комментарий, которые вы указываете в форме записи.</p>
-      <h3>Зачем они нужны</h3>
-      <p>Только чтобы связаться с вами, подтвердить запись и подготовить пост к приезду автомобиля.</p>
-      <h3>Кому мы их передаём</h3>
-      <p>Никому. Данные не продаются и не используются для рекламных рассылок.</p>
-      <h3>Как удалить данные</h3>
-      <p>Напишите на {CONTACTS.email} — мы удалим информацию о вас в течение 10 рабочих дней.</p>
-      <p className="legal__fine">Сейчас форма работает в демонстрационном режиме и никуда не отправляет данные.</p>
+      <h2 id="privacy-title" className="legal__title">Privacy policy</h2>
+      <p className="legal__fine">Demo text for a portfolio. Before launching a real website, replace it with a document prepared by a lawyer.</p>
+      <h3>What data we collect</h3>
+      <p>Your name, phone number, car details and the comment you enter in the booking form.</p>
+      <h3>Why we need it</h3>
+      <p>Only to contact you, confirm your booking and prepare a service bay for your car.</p>
+      <h3>Who we share it with</h3>
+      <p>Nobody. Your data is never sold or used for marketing emails.</p>
+      <h3>How to delete your data</h3>
+      <p>Write to {CONTACTS.email} and we will delete your information within 10 business days.</p>
+      <p className="legal__fine">The form currently works in demo mode and does not send data anywhere.</p>
     </div>
   );
 }
@@ -42,8 +42,8 @@ export function Footer() {
           <ShareLinks />
         </div>
 
-        <nav className="footer__col" aria-label="Разделы сайта">
-          <h2 className="footer__h">Разделы</h2>
+        <nav className="footer__col" aria-label="Site sections">
+          <h2 className="footer__h">Sections</h2>
           <ul>
             {NAV.map((n) => (
               <li key={n.id}>
@@ -62,7 +62,7 @@ export function Footer() {
         </nav>
 
         <div className="footer__col">
-          <h2 className="footer__h">Услуги</h2>
+          <h2 className="footer__h">Services</h2>
           <ul>
             {SERVICES.map((s) => (
               <li key={s.id}>
@@ -75,24 +75,24 @@ export function Footer() {
         </div>
 
         <div className="footer__col">
-          <h2 className="footer__h">Контакты</h2>
+          <h2 className="footer__h">Contact</h2>
           <ul className="footer__contacts">
             <li>{CONTACTS.address}</li>
             <li><a href={CONTACTS.phoneHref}>{CONTACTS.phoneDisplay}</a></li>
             <li><a href={`mailto:${CONTACTS.email}`}>{CONTACTS.email}</a></li>
-            <li>Пн–Пт 09:00–19:00<br />Сб 10:00–16:00, Вс — выходной</li>
+            <li>Mon–Fri 09:00–19:00<br />Sat 10:00–16:00, Sun closed</li>
           </ul>
         </div>
       </div>
 
       <div className="container footer__bottom">
-        <p>© {year} {BRAND.name}. Демонстрационный проект для портфолио: компания, контакты, цены и отзывы вымышлены. Фото — Unsplash.</p>
+        <p>© {year} {BRAND.name}. A demo portfolio project: the company, contacts, prices and reviews are fictional. Photos: Unsplash.</p>
         <div className="footer__legal">
           <button type="button" className="footer__linkbtn" onClick={() => setPrivacy(true)}>
-            Политика конфиденциальности
+            Privacy policy
           </button>
           {/* панель анализатора работает только вместе с локальным сервером */}
-          {isLocal && <a href="#/analyzer">Панель разработчика</a>}
+          {isLocal && <a href="#/analyzer">Developer panel</a>}
         </div>
       </div>
 

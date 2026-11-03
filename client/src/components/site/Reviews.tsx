@@ -7,7 +7,7 @@ const isDemo = REVIEWS.length === 0;
 const items = isDemo ? DEMO_REVIEWS : REVIEWS;
 
 const formatDate = (iso: string) =>
-  new Date(`${iso}T12:00:00`).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+  new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const initials = (name: string) =>
   name
@@ -58,22 +58,22 @@ export function Reviews() {
       <div className="container">
         <Reveal className="shead shead--split">
           <div>
-            <h2 id="reviews-title" className="shead__title">Отзывы клиентов</h2>
+            <h2 id="reviews-title" className="shead__title">Customer reviews</h2>
             {isDemo && (
-              <p className="demo-pill">Примеры оформления — не настоящие отзывы</p>
+              <p className="demo-pill">Sample layout — not real reviews</p>
             )}
           </div>
           <div className="slider-nav">
-            <button type="button" className="round-btn" onClick={() => goTo(Math.max(0, active - 1))} disabled={active === 0} aria-label="Предыдущие отзывы">
+            <button type="button" className="round-btn" onClick={() => goTo(Math.max(0, active - 1))} disabled={active === 0} aria-label="Previous reviews">
               <IconChevronLeft />
             </button>
-            <button type="button" className="round-btn" onClick={() => goTo(Math.min(pages - 1, active + 1))} disabled={active >= pages - 1} aria-label="Следующие отзывы">
+            <button type="button" className="round-btn" onClick={() => goTo(Math.min(pages - 1, active + 1))} disabled={active >= pages - 1} aria-label="Next reviews">
               <IconChevronRight />
             </button>
           </div>
         </Reveal>
 
-        <ul ref={track} className="reviews" aria-label={isDemo ? 'Примеры отзывов' : 'Отзывы'}>
+        <ul ref={track} className="reviews" aria-label={isDemo ? 'Sample reviews' : 'Reviews'}>
           {items.map((r) => (
             <li key={r.id} className="review">
               <div className="review__head">
@@ -83,7 +83,7 @@ export function Reviews() {
                   <span className="review__car">{r.car}</span>
                 </span>
               </div>
-              <p className="review__stars" aria-label={`Оценка ${r.rating} из 5`}>
+              <p className="review__stars" aria-label={`Rating ${r.rating} out of 5`}>
                 {[1, 2, 3, 4, 5].map((n) => (
                   <IconStar key={n} filled={n <= r.rating} />
                 ))}
@@ -91,20 +91,20 @@ export function Reviews() {
               <blockquote className="review__text">{r.text}</blockquote>
               <p className="review__foot">
                 <time dateTime={r.date}>{formatDate(r.date)}</time>
-                {isDemo && <span className="review__tag">Пример отзыва</span>}
+                {isDemo && <span className="review__tag">Sample review</span>}
               </p>
             </li>
           ))}
         </ul>
 
-        <div className="dots" role="group" aria-label="Страницы отзывов">
+        <div className="dots" role="group" aria-label="Review pages">
           {Array.from({ length: pages }, (_, i) => (
             <button
               key={i}
               type="button"
               className={`dot${i === active ? ' is-active' : ''}`}
               onClick={() => goTo(i)}
-              aria-label={`Показать отзывы с ${i + 1}-го`}
+              aria-label={`Show reviews starting from ${i + 1}`}
               aria-current={i === active ? 'true' : undefined}
             />
           ))}

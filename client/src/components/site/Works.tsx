@@ -9,7 +9,7 @@ import { Photo } from '../Photo';
 import { Reveal } from './Reveal';
 
 type Filter = 'all' | WorkCategory;
-const FILTERS: { id: Filter; label: string }[] = [{ id: 'all', label: 'Все работы' }, ...WORK_CATEGORIES.map((c) => ({ id: c, label: c }))];
+const FILTERS: { id: Filter; label: string }[] = [{ id: 'all', label: 'All work' }, ...WORK_CATEGORIES.map((c) => ({ id: c, label: c }))];
 
 /**
  * Какие карточки растянуть на две колонки, чтобы в сетке из трёх колонок
@@ -57,15 +57,15 @@ function Viewer({ index, list, onIndex, onClose }: { index: number; list: typeof
           type="button"
           className={`viewer__zoom${zoom ? ' is-zoomed' : ''}`}
           onClick={toggleZoom}
-          aria-label={zoom ? 'Уменьшить фото' : 'Увеличить фото'}
+          aria-label={zoom ? 'Zoom out' : 'Zoom in'}
           style={zoom ? ({ '--zx': `${zoom.x}%`, '--zy': `${zoom.y}%` } as CSSProperties) : undefined}
         >
           <Photo key={work.id} name={work.photo} alt={work.title} max={2200} sizes="(min-width: 1080px) 66vw, 100vw" className="viewer__photo" />
         </button>
-        <button type="button" className="viewer__nav viewer__nav--prev" onClick={prev} aria-label="Предыдущая работа">
+        <button type="button" className="viewer__nav viewer__nav--prev" onClick={prev} aria-label="Previous project">
           <IconChevronLeft />
         </button>
-        <button type="button" className="viewer__nav viewer__nav--next" onClick={next} aria-label="Следующая работа">
+        <button type="button" className="viewer__nav viewer__nav--next" onClick={next} aria-label="Next project">
           <IconChevronRight />
         </button>
         <p className="viewer__count" aria-live="polite">
@@ -76,15 +76,15 @@ function Viewer({ index, list, onIndex, onClose }: { index: number; list: typeof
         <p className="viewer__cat">{work.category}</p>
         <h2 id="work-title" className="viewer__title">{work.title}</h2>
         <p className="viewer__task">{work.task}</p>
-        <h3 className="viewer__h">Что сделали</h3>
+        <h3 className="viewer__h">What we did</h3>
         <ul className="viewer__list">
           {work.done.map((d) => (
             <li key={d}><IconCheck size={16} /> {d}</li>
           ))}
         </ul>
-        <h3 className="viewer__h">Результат</h3>
+        <h3 className="viewer__h">Result</h3>
         <p className="viewer__result">{work.result}</p>
-        <p className="viewer__time"><IconClock size={16} /> {work.duration} в работе</p>
+        <p className="viewer__time"><IconClock size={16} /> {work.duration} in the shop</p>
         <button
           type="button"
           className="sbtn sbtn--accent sbtn--block"
@@ -93,9 +93,9 @@ function Viewer({ index, list, onIndex, onClose }: { index: number; list: typeof
             window.setTimeout(() => requestBooking(), 260);
           }}
         >
-          Записаться с похожей задачей
+          Book a similar job
         </button>
-        <p className="viewer__fine">Пример работы демонстрационный, фото — иллюстрация.</p>
+        <p className="viewer__fine">Demo project; the photo is an illustration.</p>
       </div>
     </div>
   );
@@ -124,12 +124,12 @@ export function Works() {
     <section id="works" className="section section--base" aria-labelledby="works-title">
       <div className="container">
         <Reveal className="shead shead--split">
-          <h2 id="works-title" className="shead__title">Наши работы</h2>
-          <p className="shead__lead">Примеры задач, с которыми к нам приезжают. Нажмите на карточку, чтобы открыть фото и подробности.</p>
+          <h2 id="works-title" className="shead__title">Our work</h2>
+          <p className="shead__lead">Typical jobs our clients bring us. Tap a card to see the photo and details.</p>
         </Reveal>
 
         <div className="filters-scroll">
-          <div className="filters" ref={tabs} role="group" aria-label="Фильтр по категориям">
+          <div className="filters" ref={tabs} role="group" aria-label="Filter by category">
             <span className="filters__ind" style={indicator} aria-hidden="true" />
             {FILTERS.map((f) => (
               <button
@@ -148,7 +148,7 @@ export function Works() {
         <ul className="works" key={filter} aria-live="polite">
           {list.map((w, i) => (
             <li key={w.id} className={`work${wide.has(i) ? ' work--wide' : ''}${list.length % 2 === 1 && i === 0 ? ' work--wide-tab' : ''}`} style={{ '--i': i } as CSSProperties}>
-              <button type="button" className="work__media" onClick={() => setOpenIndex(i)} aria-label={`Открыть фото: ${w.title}`}>
+              <button type="button" className="work__media" onClick={() => setOpenIndex(i)} aria-label={`Open photo: ${w.title}`}>
                 <Photo
                   name={w.photo}
                   alt=""
@@ -164,14 +164,14 @@ export function Works() {
                 <h3 className="work__title">{w.title}</h3>
                 <p className="work__text">{w.short}</p>
                 <button type="button" className="svc__more" onClick={() => setOpenIndex(i)}>
-                  Подробнее
+                  Details
                   <IconArrow size={16} />
                 </button>
               </div>
             </li>
           ))}
         </ul>
-        <p className="section__fine">Примеры работ демонстрационные. Фотографии — иллюстрации с Unsplash, а не снимки реальных заказов.</p>
+        <p className="section__fine">These projects are demo examples. Photos are illustrations from Unsplash, not pictures of real jobs.</p>
       </div>
 
       <Modal

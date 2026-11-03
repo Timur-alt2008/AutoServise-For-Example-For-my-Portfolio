@@ -54,7 +54,7 @@ export const IconRoute = ({ size = 20, ...p }: IconProps) =>
 export const IconStar = ({ size = 16, filled = true, ...p }: IconProps & { filled?: boolean }) =>
   base(size, { ...p, fill: filled ? 'currentColor' : 'none' }, <path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8L12 3.5Z" />, 1.3);
 
-/* ----------------------------------------------------------- Услуги */
+/* ----------------------------------------------------------- Services */
 
 export const IconScan = ({ size = 24, ...p }: IconProps) =>
   base(size, p, <><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3" /><path d="M7 13h2.5l1.5-3 2 5 1.5-2H17" /></>);
@@ -76,7 +76,7 @@ export const IconAlign = ({ size = 24, ...p }: IconProps) =>
 export const IconChecklist = ({ size = 24, ...p }: IconProps) =>
   base(size, p, <><path d="M9 6h11M9 12h11M9 18h11" /><path d="m3.5 6 1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17" /></>);
 
-/* ----------------------------------------------------------- Преимущества */
+/* ----------------------------------------------------------- Advantages */
 
 export const IconTeam = ({ size = 24, ...p }: IconProps) =>
   base(size, p, <><circle cx="9" cy="8" r="3.2" /><path d="M3 20a6 6 0 0 1 12 0" /><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.5a5.5 5.5 0 0 1 3 5.5" /></>);

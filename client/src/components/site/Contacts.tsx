@@ -27,7 +27,7 @@ function MapPlaceholder() {
           <path d="M0 200H210M210 60H430" strokeWidth="5" />
         </g>
         <path d="M60 120H210V200" stroke="var(--accent)" strokeWidth="3" strokeDasharray="2 8" strokeLinecap="round" fill="none" />
-        <text x="226" y="112" className="map__street">ул. Центральная</text>
+        <text x="226" y="112" className="map__street">Tsentralna St</text>
       </svg>
       <div className="map__pin">
         <span className="map__pulse" aria-hidden="true" />
@@ -37,7 +37,7 @@ function MapPlaceholder() {
         <strong>{BRAND.name}</strong>
         <span>{CONTACTS.street}</span>
       </div>
-      <p className="map__note">Схема условная: адрес демонстрационный</p>
+      <p className="map__note">Schematic map: the address is fictional</p>
     </div>
   );
 }
@@ -53,8 +53,8 @@ export function Contacts() {
     <section id="contacts" className="section section--raised" aria-labelledby="contacts-title">
       <div className="container">
         <Reveal className="shead">
-          <h2 id="contacts-title" className="shead__title">Контакты</h2>
-          <p className="shead__lead">Приезжайте, звоните или пишите — подскажем, с чего начать.</p>
+          <h2 id="contacts-title" className="shead__title">Contact</h2>
+          <p className="shead__lead">Visit, call or write — we’ll help you figure out where to start.</p>
         </Reveal>
 
         <div className="contacts">
@@ -63,14 +63,14 @@ export function Contacts() {
               <div className="clist__row">
                 <IconPin />
                 <div>
-                  <span className="clist__label">Адрес</span>
+                  <span className="clist__label">Address</span>
                   <span className="clist__value">{CONTACTS.address}</span>
                 </div>
               </div>
               <div className="clist__row">
                 <IconPhone />
                 <div>
-                  <span className="clist__label">Телефон</span>
+                  <span className="clist__label">Phone</span>
                   <a className="clist__value clist__link" href={CONTACTS.phoneHref}>{CONTACTS.phoneDisplay}</a>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export function Contacts() {
               <div className="clist__row">
                 <IconClock />
                 <div>
-                  <span className="clist__label">График работы</span>
+                  <span className="clist__label">Opening hours</span>
                   <dl className="hours">
                     {CONTACTS.hours.map((h) => (
                       <div key={h.days}>
@@ -104,21 +104,21 @@ export function Contacts() {
             <div className="contacts__routes">
               <a className="sbtn sbtn--accent" href={ROUTES.google} target="_blank" rel="noopener noreferrer">
                 <IconRoute size={18} />
-                Маршрут в Google Maps
-                <span className="sr-only"> (откроется в новой вкладке)</span>
+                Directions in Google Maps
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
               <a className="sbtn sbtn--line" href={ROUTES.apple} target="_blank" rel="noopener noreferrer">
-                Apple Карты
+                Apple Maps
                 <IconExternal size={16} />
-                <span className="sr-only"> (откроется в новой вкладке)</span>
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </div>
 
             <div className="contacts__share">
-              <p className="clist__label">Поделиться контактами</p>
+              <p className="clist__label">Share our contacts</p>
               <ShareLinks />
             </div>
-            <p className="section__fine">Все контактные данные демонстрационные.</p>
+            <p className="section__fine">All contact details are for demo purposes.</p>
           </Reveal>
 
           <Reveal className="contacts__map" delay={80}>

@@ -11,7 +11,7 @@ import { Reviews } from './Reviews';
 import { Services } from './Services';
 import { Works } from './Works';
 
-export const SITE_TITLE = 'Example Auto Service — автосервис в Киеве: диагностика, ремонт и ТО';
+export const SITE_TITLE = 'Example Auto Service — car service in Kyiv: diagnostics, repair and maintenance';
 
 export function Site() {
   useEffect(() => {
@@ -27,7 +27,7 @@ export function Site() {
           document.getElementById('main')?.focus();
         }}
       >
-        Перейти к содержанию
+        Skip to content
       </a>
       <Header />
       <main id="main" tabIndex={-1}>

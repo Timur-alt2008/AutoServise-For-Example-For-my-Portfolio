@@ -4,28 +4,28 @@
  * Чтобы адаптировать сайт под настоящий бизнес, достаточно править этот файл.
  */
 
-/** Адрес опубликованного сайта — для canonical, Open Graph и sitemap. Замените на свой домен. */
+/** Address опубликованного сайта — для canonical, Open Graph и sitemap. Замените на свой домен. */
 export const SITE_URL = 'https://timur-alt2008.github.io/AutoServise-For-Example-For-my-Portfolio/';
 
 export const BRAND = {
   name: 'Example Auto Service',
   short: 'Example',
-  tagline: 'Сервисный центр',
+  tagline: 'Service center',
   about:
-    'Диагностика, ремонт и техническое обслуживание легковых автомобилей. Работаем по согласованному плану и объясняем каждую операцию.',
+    'Diagnostics, repair and maintenance of passenger cars. We follow an agreed plan and explain every step.',
 } as const;
 
 export const CONTACTS = {
-  address: 'ул. Центральная, 15, Киев, Украина',
-  street: 'ул. Центральная, 15',
-  city: 'Киев',
+  address: '15 Tsentralna St, Kyiv, Ukraine',
+  street: '15 Tsentralna St',
+  city: 'Kyiv',
   phoneDisplay: '+380 67 000 00 00',
   phoneHref: 'tel:+380670000000',
   email: 'example.autoservice@gmail.com',
   hours: [
-    { days: 'Понедельник — пятница', time: '09:00–19:00', open: 9, close: 19, weekdays: [1, 2, 3, 4, 5] },
-    { days: 'Суббота', time: '10:00–16:00', open: 10, close: 16, weekdays: [6] },
-    { days: 'Воскресенье', time: 'выходной', open: 0, close: 0, weekdays: [0] },
+    { days: 'Monday — Friday', time: '09:00–19:00', open: 9, close: 19, weekdays: [1, 2, 3, 4, 5] },
+    { days: 'Saturday', time: '10:00–16:00', open: 10, close: 16, weekdays: [6] },
+    { days: 'Sunday', time: 'closed', open: 0, close: 0, weekdays: [0] },
   ],
 } as const;
 
@@ -35,15 +35,15 @@ export const ROUTES = {
   apple: `https://maps.apple.com/?daddr=${encodedAddress}`,
 } as const;
 
-export const CURRENCY = 'грн';
+export const CURRENCY = 'UAH';
 
 export const NAV = [
-  { id: 'top', label: 'Главная' },
-  { id: 'services', label: 'Услуги' },
-  { id: 'about', label: 'О компании' },
-  { id: 'works', label: 'Наши работы' },
-  { id: 'reviews', label: 'Отзывы' },
-  { id: 'contacts', label: 'Контакты' },
+  { id: 'top', label: 'Home' },
+  { id: 'services', label: 'Services' },
+  { id: 'about', label: 'About' },
+  { id: 'works', label: 'Our work' },
+  { id: 'reviews', label: 'Reviews' },
+  { id: 'contacts', label: 'Contact' },
 ] as const;
 
 /* ------------------------------------------------------------------ Фото */
@@ -80,7 +80,7 @@ export const PHOTOS = {
 
 export type PhotoKey = keyof typeof PHOTOS;
 
-/* ------------------------------------------------------------------ Услуги */
+/* ------------------------------------------------------------------ Services */
 
 export type ServiceIcon =
   | 'scan'
@@ -102,7 +102,7 @@ export interface Service {
   duration: string;
   details: string;
   includes: string[];
-  /** Демо-цена в гривнах или null, если стоимость определяется после диагностики */
+  /** Демо-цена в гривнах или null, если стоимость определяется after diagnostics */
   priceFrom: number | null;
   photo: PhotoKey;
   icon: ServiceIcon;
@@ -111,120 +111,120 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     id: 'diagnostics',
-    title: 'Диагностика автомобиля',
-    short: 'Сканирование блоков управления, данные датчиков в движении и осмотр на подъёмнике.',
-    duration: '1–2 часа',
+    title: 'Car diagnostics',
+    short: 'Control unit scanning, live sensor data on the road and an inspection on the lift.',
+    duration: '1–2 hours',
     details:
-      'Начинаем с разговора о симптомах, затем считываем ошибки всех блоков и смотрим живые параметры двигателя и коробки. Результат — список неисправностей с приоритетом: что нужно сделать сейчас, а что может подождать.',
-    includes: ['Сканирование всех электронных блоков', 'Анализ параметров датчиков', 'Осмотр узлов на подъёмнике', 'Письменное заключение и смета'],
+      'We start by talking about the symptoms, then read fault codes from every control unit and check live engine and gearbox data. You get a prioritized list of faults: what needs fixing now and what can wait.',
+    includes: ['Scan of all electronic control units', 'Sensor data analysis', 'Inspection of components on the lift', 'Written report and estimate'],
     priceFrom: 600,
     photo: 'service-diagnostics',
     icon: 'scan',
   },
   {
     id: 'engine',
-    title: 'Ремонт двигателя',
-    short: 'От поиска причины пропусков зажигания до замены ГРМ и капитального ремонта.',
-    duration: '1–5 рабочих дней',
+    title: 'Engine repair',
+    short: 'From tracking down misfires to timing belt replacement and full engine rebuilds.',
+    duration: '1–5 business days',
     details:
-      'Перед ремонтом определяем причину неисправности, а не меняем детали наугад. Объём работ, запчасти и сроки согласуем с вами заранее; снятые детали можно посмотреть.',
-    includes: ['Диагностика зажигания, впуска и топливной системы', 'Замена ремня или цепи ГРМ', 'Устранение течей масла и антифриза', 'Капитальный ремонт по согласованию'],
+      'Before repairing, we find the cause of the fault instead of replacing parts at random. Scope, parts and timing are agreed with you in advance; you can see the removed parts.',
+    includes: ['Ignition, intake and fuel system diagnostics', 'Timing belt or chain replacement', 'Oil and coolant leak repair', 'Engine rebuild by agreement'],
     priceFrom: null,
     photo: 'service-engine',
     icon: 'engine',
   },
   {
     id: 'suspension',
-    title: 'Ремонт ходовой части',
-    short: 'Находим источник стуков и люфтов, меняем только изношенные элементы.',
-    duration: '2–6 часов',
+    title: 'Suspension repair',
+    short: 'We find the source of knocks and play and replace only worn parts.',
+    duration: '2–6 hours',
     details:
-      'Проверяем подвеску на подъёмнике с люфтомером, показываем найденный износ и согласуем замену. После ремонта рекомендуем развал-схождение, если затронута геометрия.',
-    includes: ['Проверка люфтов и состояния опор', 'Замена амортизаторов, рычагов, сайлентблоков', 'Замена ступичных подшипников', 'Контрольная поездка'],
+      'We check the suspension on a lift with a play detector, show you the wear we find and agree on replacements. If the geometry is affected, we recommend a wheel alignment afterwards.',
+    includes: ['Check for play and mount condition', 'Shock absorber, control arm and bushing replacement', 'Wheel bearing replacement', 'Test drive'],
     priceFrom: 500,
     photo: 'service-suspension',
     icon: 'suspension',
   },
   {
     id: 'fluids',
-    title: 'Замена масла и технических жидкостей',
-    short: 'Масло, фильтры, антифриз, тормозная жидкость и масло в коробке по регламенту.',
-    duration: '30–60 минут',
+    title: 'Oil and fluid change',
+    short: 'Oil, filters, coolant, brake fluid and gearbox oil according to the service schedule.',
+    duration: '30–60 minutes',
     details:
-      'Подбираем масло и жидкости по допускам производителя вашего автомобиля. Заодно проверяем уровни, состояние фильтров и отсутствие течей.',
-    includes: ['Моторное масло и масляный фильтр', 'Воздушный и салонный фильтры', 'Антифриз и тормозная жидкость', 'Масло в АКПП и МКПП'],
+      'We choose oil and fluids that meet your car manufacturer’s specifications. We also check fluid levels, filter condition and look for leaks.',
+    includes: ['Engine oil and oil filter', 'Air and cabin filters', 'Coolant and brake fluid', 'Automatic and manual gearbox oil'],
     priceFrom: 400,
     photo: 'service-fluids',
     icon: 'drop',
   },
   {
     id: 'brakes',
-    title: 'Ремонт тормозной системы',
-    short: 'Колодки, диски, суппорты и тормозная жидкость — с контрольной проверкой.',
-    duration: '1–3 часа',
+    title: 'Brake repair',
+    short: 'Pads, discs, calipers and brake fluid — with a final check.',
+    duration: '1–3 hours',
     details:
-      'Измеряем износ колодок и толщину дисков, проверяем суппорты и шланги. После работ — прокачка системы и проверка эффективности торможения.',
-    includes: ['Замена колодок и дисков', 'Обслуживание направляющих суппортов', 'Замена тормозной жидкости', 'Проверка стояночного тормоза'],
+      'We measure pad wear and disc thickness and check the calipers and hoses. After the work we bleed the system and test braking performance.',
+    includes: ['Pad and disc replacement', 'Caliper guide pin service', 'Brake fluid replacement', 'Parking brake check'],
     priceFrom: 700,
     photo: 'service-brakes',
     icon: 'brake',
   },
   {
     id: 'transmission',
-    title: 'Ремонт трансмиссии',
-    short: 'Механические и автоматические коробки, сцепление, приводы и ШРУСы.',
-    duration: '1–4 рабочих дня',
+    title: 'Transmission repair',
+    short: 'Manual and automatic gearboxes, clutches, driveshafts and CV joints.',
+    duration: '1–4 business days',
     details:
-      'Читаем ошибки блока АКПП, проверяем состояние масла и работу на ходу. Ремонтируем сцепление, приводы и коробки или предлагаем контрактный агрегат — по согласованию.',
-    includes: ['Диагностика АКПП, DSG и вариаторов', 'Замена комплекта сцепления', 'Замена приводов и ШРУСов', 'Адаптация коробки после ремонта'],
+      'We read the transmission control unit codes, check the fluid and test the gearbox on the road. We repair clutches, driveshafts and gearboxes or offer a used replacement unit — by agreement.',
+    includes: ['Automatic, DSG and CVT diagnostics', 'Clutch kit replacement', 'Driveshaft and CV joint replacement', 'Gearbox adaptation after repair'],
     priceFrom: null,
     photo: 'service-transmission',
     icon: 'gear',
   },
   {
     id: 'electrics',
-    title: 'Электрика и электроника',
-    short: 'Поиск утечек тока, ремонт проводки, генератора, стартера и освещения.',
-    duration: 'от 1 часа',
+    title: 'Electrical and electronics',
+    short: 'Parasitic drain diagnosis, wiring, alternator, starter and lighting repair.',
+    duration: 'from 1 hour',
     details:
-      'Неисправности электрики ищем по схемам производителя с мультиметром и осциллографом. Стоимость поиска согласуем заранее — сроки зависят от сложности.',
-    includes: ['Поиск утечки тока', 'Ремонт проводки и разъёмов', 'Проверка генератора и стартера', 'Замена аккумулятора с проверкой зарядки'],
+      'We trace electrical faults using manufacturer wiring diagrams, a multimeter and an oscilloscope. The cost of diagnosis is agreed in advance; time depends on complexity.',
+    includes: ['Parasitic drain diagnosis', 'Wiring and connector repair', 'Alternator and starter check', 'Battery replacement with charging system check'],
     priceFrom: 500,
     photo: 'service-electrics',
     icon: 'bolt',
   },
   {
     id: 'tires',
-    title: 'Шиномонтаж',
-    short: 'Сезонная замена, балансировка и ремонт проколов, в том числе низкий профиль.',
-    duration: '40–60 минут',
+    title: 'Tire service',
+    short: 'Seasonal changeover, balancing and puncture repair, including low-profile tires.',
+    duration: '40–60 minutes',
     details:
-      'Работаем с дисками до 22 дюймов и шинами Run Flat. Затягиваем болты динамометрическим ключом с усилием по данным производителя.',
-    includes: ['Сезонная замена колёс', 'Балансировка', 'Ремонт проколов', 'Проверка давления и износа протектора'],
+      'We work with wheels up to 22 inches and Run Flat tires. Wheel bolts are tightened with a torque wrench to the manufacturer’s specification.',
+    includes: ['Seasonal wheel changeover', 'Balancing', 'Puncture repair', 'Tire pressure and tread wear check'],
     priceFrom: 600,
     photo: 'service-tires',
     icon: 'tire',
   },
   {
     id: 'alignment',
-    title: 'Развал-схождение',
-    short: 'Измерение и регулировка углов колёс на 3D-стенде с распечаткой результата.',
-    duration: 'около 1 часа',
+    title: 'Wheel alignment',
+    short: 'Wheel angle measurement and adjustment on a 3D rig with a printed report.',
+    duration: 'about 1 hour',
     details:
-      'Перед регулировкой проверяем давление в шинах и люфты в подвеске — иначе результат не продержится. Протокол «до и после» отдаём на руки.',
-    includes: ['Проверка подвески перед регулировкой', 'Регулировка схождения и развала', 'Центровка руля', 'Протокол измерений до и после'],
+      'Before adjusting, we check tire pressure and suspension play — otherwise the result won’t last. You get a before-and-after printout.',
+    includes: ['Suspension check before alignment', 'Toe and camber adjustment', 'Steering wheel centering', 'Before-and-after measurement report'],
     priceFrom: 800,
     photo: 'service-alignment',
     icon: 'align',
   },
   {
     id: 'maintenance',
-    title: 'Комплексное техническое обслуживание',
-    short: 'Плановое ТО по регламенту производителя с осмотром автомобиля по чек-листу.',
-    duration: '2–4 часа',
+    title: 'Full maintenance service',
+    short: 'Scheduled service to the manufacturer’s plan with a 40-point inspection.',
+    duration: '2–4 hours',
     details:
-      'Выполняем работы по сервисной книжке и проверяем автомобиль по чек-листу из 40 пунктов. Всё, что требует внимания, фотографируем и согласуем — без навязанных работ.',
-    includes: ['Работы по регламенту пробега', 'Проверка по чек-листу из 40 пунктов', 'Фотоотчёт о состоянии узлов', 'Рекомендации к следующему визиту'],
+      'We carry out the work listed in your service book and inspect the car using a 40-point checklist. Anything that needs attention is photographed and agreed with you — no unnecessary extras.',
+    includes: ['Work according to the mileage schedule', '40-point checklist inspection', 'Photo report on component condition', 'Recommendations for the next visit'],
     priceFrom: 1800,
     photo: 'service-maintenance',
     icon: 'check',
@@ -233,30 +233,30 @@ export const SERVICES: Service[] = [
 
 export const serviceById = (id: string): Service | undefined => SERVICES.find((s) => s.id === id);
 
-/* ---------------------------------------------------------- Преимущества */
+/* ---------------------------------------------------------- Advantages */
 
 export type AdvantageIcon = 'team' | 'scan' | 'receipt' | 'shield' | 'person' | 'calendar';
 
 export const ADVANTAGES: { title: string; text: string; icon: AdvantageIcon }[] = [
-  { title: 'Опытные специалисты', text: 'Каждый мастер отвечает за своё направление: двигатель, ходовая, электрика.', icon: 'team' },
-  { title: 'Современное оборудование', text: 'Дилерские сканеры, 3D-стенд развала-схождения и подъёмники на каждом посту.', icon: 'scan' },
-  { title: 'Прозрачная стоимость', text: 'Смета до начала работ. Дополнительные работы — только после вашего согласия.', icon: 'receipt' },
-  { title: 'Гарантия на работы', text: 'Гарантийные условия фиксируем в заказ-наряде вместе с перечнем работ.', icon: 'shield' },
-  { title: 'Индивидуальный подход', text: 'Учитываем бюджет и планы на автомобиль: предлагаем варианты, а не один ответ.', icon: 'person' },
-  { title: 'Соблюдение сроков', text: 'Называем срок после диагностики и предупреждаем заранее, если он меняется.', icon: 'calendar' },
+  { title: 'Experienced technicians', text: 'Each technician is responsible for their own area: engine, suspension, electrics.', icon: 'team' },
+  { title: 'Modern equipment', text: 'Dealer-level scanners, a 3D alignment rig and a lift in every bay.', icon: 'scan' },
+  { title: 'Transparent pricing', text: 'An estimate before work starts. Extra work only with your approval.', icon: 'receipt' },
+  { title: 'Warranty on work', text: 'Warranty terms are recorded in the work order together with the list of work done.', icon: 'shield' },
+  { title: 'Individual approach', text: 'We consider your budget and plans for the car and offer options, not a single answer.', icon: 'person' },
+  { title: 'Deadlines kept', text: 'We give a time estimate after diagnostics and let you know in advance if it changes.', icon: 'calendar' },
 ];
 
 /** Характеристики вымышленного сервиса (демо-данные, а не достижения реальной компании) */
 export const FACTS: { value: number; suffix?: string; label: string }[] = [
-  { value: 6, label: 'рабочих постов с подъёмниками' },
-  { value: 12, suffix: ' мес.', label: 'гарантии на выполненные работы' },
-  { value: 10, label: 'направлений обслуживания' },
-  { value: 6, suffix: ' дней', label: 'в неделю принимаем автомобили' },
+  { value: 6, label: 'service bays with lifts' },
+  { value: 12, label: 'months of warranty on completed work' },
+  { value: 10, label: 'service areas' },
+  { value: 6, label: 'days a week we accept cars' },
 ];
 
-/* --------------------------------------------------------------- Наши работы */
+/* --------------------------------------------------------------- Our work */
 
-export const WORK_CATEGORIES = ['Диагностика', 'Ремонт двигателя', 'Ходовая часть', 'Детейлинг', 'Обслуживание'] as const;
+export const WORK_CATEGORIES = ['Diagnostics', 'Engine repair', 'Suspension', 'Detailing', 'Maintenance'] as const;
 export type WorkCategory = (typeof WORK_CATEGORIES)[number];
 
 export interface Work {
@@ -274,112 +274,112 @@ export interface Work {
 export const WORKS: Work[] = [
   {
     id: 'scan',
-    title: 'Поиск плавающей ошибки двигателя',
-    category: 'Диагностика',
-    short: 'Индикатор Check Engine загорался раз в неделю — нашли трещину во впускном патрубке.',
-    task: 'Ошибка по смеси появлялась и пропадала, двигатель периодически троил на холостом ходу.',
-    done: ['Запись параметров датчиков в поездке', 'Дымогенератор для поиска подсоса воздуха', 'Замена впускного патрубка'],
-    result: 'Ошибка не возвращается, холостой ход ровный.',
-    duration: '1 день',
+    title: 'Tracking down an intermittent engine fault',
+    category: 'Diagnostics',
+    short: 'The Check Engine light came on once a week — we found a crack in the intake hose.',
+    task: 'A fuel mixture code kept appearing and disappearing, and the engine occasionally misfired at idle.',
+    done: ['Logging sensor data on a test drive', 'Smoke test to find the air leak', 'Intake hose replacement'],
+    result: 'The fault hasn’t returned and the idle is smooth.',
+    duration: '1 day',
     photo: 'work-scan',
   },
   {
     id: 'noise',
-    title: 'Диагностика перед покупкой',
-    category: 'Диагностика',
-    short: 'Полная проверка внедорожника перед сделкой: электроника, ходовая, следы ремонта.',
-    task: 'Клиент выбирал подержанный автомобиль и хотел понимать реальное состояние до покупки.',
-    done: ['Сканирование всех блоков управления', 'Осмотр на подъёмнике', 'Замер толщины лакокрасочного покрытия'],
-    result: 'Клиент получил отчёт с фото и списком предстоящих вложений.',
-    duration: '2 часа',
+    title: 'Pre-purchase inspection',
+    category: 'Diagnostics',
+    short: 'A full check of an SUV before purchase: electronics, suspension, signs of past repairs.',
+    task: 'The client was choosing a used car and wanted to know its real condition before buying.',
+    done: ['Scan of all control units', 'Inspection on the lift', 'Paint thickness measurement'],
+    result: 'The client received a report with photos and a list of upcoming expenses.',
+    duration: '2 hours',
     photo: 'work-noise',
   },
   {
     id: 'camshaft',
-    title: 'Ремонт головки блока цилиндров',
-    category: 'Ремонт двигателя',
-    short: 'Стук на холодную — заменили изношенные гидрокомпенсаторы и рокеры.',
-    task: 'Металлический стук в верхней части двигателя после запуска.',
-    done: ['Вскрытие клапанной крышки', 'Замена гидрокомпенсаторов и рокеров', 'Замена прокладки и масла'],
-    result: 'Двигатель работает тихо на холодную и прогретую.',
-    duration: '2 дня',
+    title: 'Cylinder head repair',
+    category: 'Engine repair',
+    short: 'Ticking on a cold start — we replaced worn hydraulic lifters and rocker arms.',
+    task: 'A metallic ticking from the top of the engine after start-up.',
+    done: ['Valve cover removal', 'Hydraulic lifter and rocker arm replacement', 'Gasket and oil replacement'],
+    result: 'The engine runs quietly both cold and warm.',
+    duration: '2 days',
     photo: 'work-camshaft',
   },
   {
     id: 'timing',
-    title: 'Замена цепи ГРМ',
-    category: 'Ремонт двигателя',
-    short: 'Растянутая цепь давала ошибку фаз — заменили комплект с натяжителем.',
-    task: 'Ошибка рассогласования фаз газораспределения и шум цепи при запуске.',
-    done: ['Проверка фаз сканером', 'Замена цепи, успокоителей и натяжителя', 'Адаптация фаз после сборки'],
-    result: 'Ошибка ушла, шум при запуске пропал.',
-    duration: '2 дня',
+    title: 'Timing chain replacement',
+    category: 'Engine repair',
+    short: 'A stretched chain caused a timing fault — we replaced the kit with the tensioner.',
+    task: 'A camshaft timing correlation fault and chain noise on start-up.',
+    done: ['Timing check with a scanner', 'Chain, guide and tensioner replacement', 'Timing adaptation after assembly'],
+    result: 'The fault is gone and the start-up noise has stopped.',
+    duration: '2 days',
     photo: 'work-timing',
   },
   {
     id: 'chassis',
-    title: 'Восстановление передней подвески',
-    category: 'Ходовая часть',
-    short: 'Стук на неровностях — замена рычагов и стоек стабилизатора с развалом.',
-    task: 'Стук спереди на неровностях и увод автомобиля вправо.',
-    done: ['Осмотр с люфтомером', 'Замена рычагов и стоек стабилизатора', 'Развал-схождение на 3D-стенде'],
-    result: 'Стук устранён, автомобиль держит прямую.',
-    duration: '6 часов',
+    title: 'Front suspension restoration',
+    category: 'Suspension',
+    short: 'Knocking over bumps — control arms and stabilizer links replaced, then aligned.',
+    task: 'Knocking from the front over bumps and the car pulling to the right.',
+    done: ['Inspection with a play detector', 'Control arm and stabilizer link replacement', 'Wheel alignment on a 3D rig'],
+    result: 'The knocking is gone and the car drives straight.',
+    duration: '6 hours',
     photo: 'work-chassis',
   },
   {
     id: 'caliper',
-    title: 'Обслуживание тормозов',
-    category: 'Ходовая часть',
-    short: 'Неравномерный износ колодок — восстановили подвижность направляющих суппорта.',
-    task: 'Скрип при торможении и разный износ внутренней и внешней колодки.',
-    done: ['Замер толщины дисков', 'Чистка и смазка направляющих', 'Замена колодок и тормозной жидкости'],
-    result: 'Скрип пропал, колодки прилегают равномерно.',
-    duration: '2 часа',
+    title: 'Brake service',
+    category: 'Suspension',
+    short: 'Uneven pad wear — we restored free movement of the caliper guide pins.',
+    task: 'Squealing when braking and uneven wear between inner and outer pads.',
+    done: ['Disc thickness measurement', 'Guide pin cleaning and lubrication', 'Pad and brake fluid replacement'],
+    result: 'The squeal is gone and the pads sit evenly.',
+    duration: '2 hours',
     photo: 'work-caliper',
   },
   {
     id: 'polish',
-    title: 'Восстановительная полировка кузова',
-    category: 'Детейлинг',
-    short: 'Убрали голограммы и мелкие царапины после автоматической мойки.',
-    task: 'Лак потерял глубину, на солнце видна паутина мелких царапин.',
-    done: ['Двухфазная мойка и очистка глиной', 'Абразивная полировка в два этапа', 'Нанесение защитного состава'],
-    result: 'Глубина цвета восстановлена, царапины не видны при дневном свете.',
-    duration: '2 дня',
+    title: 'Paint correction polishing',
+    category: 'Detailing',
+    short: 'We removed holograms and fine scratches left by an automatic car wash.',
+    task: 'The paint had lost its depth, with a web of fine scratches visible in the sun.',
+    done: ['Two-bucket wash and clay bar treatment', 'Two-stage machine polishing', 'Protective coating application'],
+    result: 'Color depth restored; scratches are invisible in daylight.',
+    duration: '2 days',
     photo: 'work-polish',
   },
   {
     id: 'wash',
-    title: 'Детейлинг-мойка перед продажей',
-    category: 'Детейлинг',
-    short: 'Мойка кузова, дисков и моторного отсека перед фотосъёмкой для объявления.',
-    task: 'Подготовить автомобиль к продаже: чистый кузов, салон и подкапотное пространство.',
-    done: ['Бесконтактная мойка с активной пеной', 'Очистка дисков и арок', 'Химчистка салона'],
-    result: 'Автомобиль готов к фотосъёмке и показу покупателям.',
-    duration: '1 день',
+    title: 'Detailing wash before sale',
+    category: 'Detailing',
+    short: 'Body, wheel and engine bay cleaning before photos for a sale listing.',
+    task: 'Get the car ready for sale: a clean body, interior and engine bay.',
+    done: ['Touchless wash with snow foam', 'Wheel and wheel arch cleaning', 'Interior deep cleaning'],
+    result: 'The car is ready for photos and viewings.',
+    duration: '1 day',
     photo: 'work-wash',
   },
   {
     id: 'oil',
-    title: 'Плановое ТО на 60 000 км',
-    category: 'Обслуживание',
-    short: 'Масло, все фильтры, свечи и проверка по чек-листу из 40 пунктов.',
-    task: 'Регламентное обслуживание по сервисной книжке.',
-    done: ['Замена масла и фильтров', 'Замена свечей зажигания', 'Проверка по чек-листу с фотоотчётом'],
-    result: 'Работы внесены в сервисную историю, рекомендации переданы клиенту.',
-    duration: '3 часа',
+    title: '60,000 km scheduled service',
+    category: 'Maintenance',
+    short: 'Oil, all filters, spark plugs and a 40-point checklist inspection.',
+    task: 'Scheduled maintenance according to the service book.',
+    done: ['Oil and filter change', 'Spark plug replacement', 'Checklist inspection with a photo report'],
+    result: 'The work was added to the service history and recommendations were passed to the client.',
+    duration: '3 hours',
     photo: 'work-oil',
   },
   {
     id: 'service',
-    title: 'Подготовка к зиме',
-    category: 'Обслуживание',
-    short: 'Проверка аккумулятора, антифриза и ремня навесного оборудования.',
-    task: 'Подготовить автомобиль к холодам перед дальней поездкой.',
-    done: ['Нагрузочный тест аккумулятора', 'Замер температуры замерзания антифриза', 'Замена приводного ремня'],
-    result: 'Автомобиль готов к зиме, слабых мест не осталось.',
-    duration: '2 часа',
+    title: 'Winter preparation',
+    category: 'Maintenance',
+    short: 'Battery, coolant and accessory belt check.',
+    task: 'Prepare the car for cold weather before a long trip.',
+    done: ['Battery load test', 'Coolant freeze point measurement', 'Drive belt replacement'],
+    result: 'The car is ready for winter with no weak spots left.',
+    duration: '2 hours',
     photo: 'work-service',
   },
 ];
@@ -387,15 +387,15 @@ export const WORKS: Work[] = [
 /* -------------------------------------------------------------- Процесс */
 
 export const STEPS: { title: string; text: string }[] = [
-  { title: 'Оставляете заявку', text: 'На сайте или по телефону — с описанием задачи.' },
-  { title: 'Уточняем детали', text: 'Перезваниваем, задаём вопросы и подбираем время.' },
-  { title: 'Проводим диагностику', text: 'Находим причину и фиксируем состояние узлов.' },
-  { title: 'Согласовываем смету', text: 'Называем стоимость и сроки до начала работ.' },
-  { title: 'Выполняем ремонт', text: 'Только согласованные работы, с фотоотчётом.' },
-  { title: 'Передаём автомобиль', text: 'Показываем результат и отдаём заказ-наряд.' },
+  { title: 'You send a request', text: 'Online or by phone, with a description of the job.' },
+  { title: 'We clarify the details', text: 'We call you back, ask questions and find a time.' },
+  { title: 'We run diagnostics', text: 'We find the cause and record the condition of components.' },
+  { title: 'We agree on the estimate', text: 'We give you the price and timing before work starts.' },
+  { title: 'We do the repair', text: 'Only the agreed work, with a photo report.' },
+  { title: 'We hand over the car', text: 'We show you the result and give you the work order.' },
 ];
 
-/* ------------------------------------------------------------------- Отзывы */
+/* ------------------------------------------------------------------- Reviews */
 
 export interface Review {
   id: string;
@@ -408,38 +408,38 @@ export interface Review {
 
 /**
  * Настоящие отзывы: подключите источник (Google Business, CRM) и верните массив сюда.
- * Пока он пуст, сайт показывает примеры ниже — с явной пометкой «Пример отзыва».
+ * Пока он пуст, сайт показывает примеры ниже — с явной пометкой «Sample review».
  */
 export const REVIEWS: Review[] = [];
 
 /** Примеры оформления. НЕ настоящие отзывы клиентов. */
 export const DEMO_REVIEWS: Review[] = [
-  { id: 'd1', author: 'Андрей К.', car: 'Volkswagen Passat', rating: 5, date: '2026-09-14', text: 'Пример отзыва: перед ремонтом показали изношенные детали на подъёмнике и сразу назвали стоимость. Итоговая сумма совпала со сметой.' },
-  { id: 'd2', author: 'Ольга М.', car: 'Toyota RAV4', rating: 5, date: '2026-08-30', text: 'Пример отзыва: записалась на ТО через сайт, перезвонили через 15 минут. Автомобиль отдали в оговорённое время, с фотоотчётом.' },
-  { id: 'd3', author: 'Игорь С.', car: 'BMW 320d', rating: 4, date: '2026-08-02', text: 'Пример отзыва: долго искали причину ошибки, но предупредили о сроках заранее. Ошибка больше не возвращается.' },
-  { id: 'd4', author: 'Марина Л.', car: 'Skoda Octavia', rating: 5, date: '2026-07-19', text: 'Пример отзыва: понравилось, что предложили два варианта ремонта — оригинал и качественный аналог — и объяснили разницу.' },
-  { id: 'd5', author: 'Сергей В.', car: 'Mercedes-Benz E-Class', rating: 5, date: '2026-06-27', text: 'Пример отзыва: сделали развал-схождение и отдали распечатку «до и после». Руль наконец стоит ровно.' },
-  { id: 'd6', author: 'Денис П.', car: 'Hyundai Tucson', rating: 5, date: '2026-06-05', text: 'Пример отзыва: заменили сцепление за два дня, как и обещали. В зоне ожидания можно было спокойно поработать.' },
+  { id: 'd1', author: 'Andriy K.', car: 'Volkswagen Passat', rating: 5, date: '2026-09-14', text: 'Sample review: before the repair they showed me the worn parts on the lift and gave me the price right away. The final bill matched the estimate.' },
+  { id: 'd2', author: 'Olha M.', car: 'Toyota RAV4', rating: 5, date: '2026-08-30', text: 'Sample review: I booked a service on the website and got a call back within 15 minutes. The car was ready at the agreed time, with a photo report.' },
+  { id: 'd3', author: 'Ihor S.', car: 'BMW 320d', rating: 4, date: '2026-08-02', text: 'Sample review: finding the cause of the fault took a while, but they warned me about the timing in advance. The fault hasn’t come back.' },
+  { id: 'd4', author: 'Maryna L.', car: 'Skoda Octavia', rating: 5, date: '2026-07-19', text: 'Sample review: I liked that they offered two repair options — original and a quality aftermarket part — and explained the difference.' },
+  { id: 'd5', author: 'Serhiy V.', car: 'Mercedes-Benz E-Class', rating: 5, date: '2026-06-27', text: 'Sample review: they did a wheel alignment and gave me a before-and-after printout. The steering wheel is finally straight.' },
+  { id: 'd6', author: 'Denys P.', car: 'Hyundai Tucson', rating: 5, date: '2026-06-05', text: 'Sample review: they replaced the clutch in two days, as promised. I could work quietly in the waiting area.' },
 ];
 
 /* ---------------------------------------------------------------------- FAQ */
 
 export const FAQ: { q: string; a: string }[] = [
   {
-    q: 'Как записаться на сервис?',
-    a: 'Оставьте заявку в форме на сайте или позвоните. Администратор перезвонит, уточнит детали и подтвердит время.',
+    q: 'How do I book a service?',
+    a: 'Submit a request through the form on the website or give us a call. Our service advisor will call back, clarify the details and confirm the time.',
   },
   {
-    q: 'Можно ли приехать со своими запчастями?',
-    a: 'Да, если детали согласованы заранее. Гарантия в этом случае распространяется на работу, но не на саму запчасть.',
+    q: 'Can I bring my own parts?',
+    a: 'Yes, if the parts are agreed in advance. In that case the warranty covers the work but not the part itself.',
   },
   {
-    q: 'Как определяется итоговая стоимость?',
-    a: 'После диагностики мастер составляет смету: работы, детали и сроки. Ремонт начинается только после вашего согласия.',
+    q: 'How is the final price determined?',
+    a: 'After diagnostics, the technician prepares an estimate: work, parts and timing. Repairs start only after your approval.',
   },
   {
-    q: 'Что будет, если во время ремонта найдут ещё неисправность?',
-    a: 'Мастер остановит работы по этому узлу, сообщит о находке с фото и назовёт стоимость. Дополнительные работы — только после согласования.',
+    q: 'What if another fault is found during the repair?',
+    a: 'The technician will stop work on that component, tell you about the finding with photos and give you the price. Extra work is done only after your approval.',
   },
 ];
 
@@ -489,7 +489,7 @@ export function openNow(now = new Date()): { open: boolean; text: string } {
   const row = CONTACTS.hours.find((h) => (h.weekdays as readonly number[]).includes(wd));
   const t = hour + minute / 60;
   if (row && row.open > 0 && t >= row.open && t < row.close) {
-    return { open: true, text: `Сейчас открыто — до ${String(row.close).padStart(2, '0')}:00` };
+    return { open: true, text: `Open now — until ${String(row.close).padStart(2, '0')}:00` };
   }
-  return { open: false, text: 'Сейчас закрыто — оставьте заявку, мы перезвоним' };
+  return { open: false, text: 'Closed now — leave a request and we’ll call you back' };
 }

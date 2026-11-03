@@ -9,8 +9,8 @@ export function Faq() {
     <section id="faq" className="section section--base" aria-labelledby="faq-title">
       <div className="container faq-grid">
         <Reveal className="shead shead--left">
-          <h2 id="faq-title" className="shead__title">Частые вопросы</h2>
-          <p className="shead__lead">Не нашли ответ? Позвоните — администратор подскажет.</p>
+          <h2 id="faq-title" className="shead__title">Frequently asked questions</h2>
+          <p className="shead__lead">Didn’t find an answer? Call us and our service advisor will help.</p>
         </Reveal>
         <Reveal as="ul" className="faq" delay={60}>
           {FAQ.map((f, i) => {

@@ -93,7 +93,7 @@ export function Modal({ open, onClose, labelledBy, children, className = '', onP
       }}
     >
       <div ref={panel} className={`smodal__panel ${className}`} role="dialog" aria-modal="true" aria-labelledby={labelledBy} tabIndex={-1}>
-        <button type="button" className="smodal__close" onClick={onClose} aria-label="Закрыть">
+        <button type="button" className="smodal__close" onClick={onClose} aria-label="Close">
           <IconClose />
         </button>
         {open ? children : lastChildren.current}

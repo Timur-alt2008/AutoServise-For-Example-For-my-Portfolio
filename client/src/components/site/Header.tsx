@@ -9,7 +9,7 @@ const SECTION_IDS = NAV.map((n) => n.id);
 
 export function Logo({ onClick }: { onClick?: (e: MouseEvent) => void }) {
   return (
-    <a className="logo" href="#top" onClick={onClick} aria-label={`${BRAND.name} — на главную`}>
+    <a className="logo" href="#top" onClick={onClick} aria-label={`${BRAND.name} — home`}>
       <svg className="logo__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <path d="M6 7h17v4.2H10.6v3.1h10.6v4H10.6v2.6H23V25H6V7Z" fill="currentColor" />
         <path d="M24.5 25 28 7" stroke="var(--accent)" strokeWidth="3" strokeLinecap="square" />
@@ -74,7 +74,7 @@ export function Header() {
       <div className="container header__in">
         <Logo onClick={go('top')} />
 
-        <nav className="nav" aria-label="Основная навигация">
+        <nav className="nav" aria-label="Main navigation">
           <ul className="nav__list">
             {NAV.map((item) => (
               <li key={item.id}>
@@ -97,7 +97,7 @@ export function Header() {
             <span>{CONTACTS.phoneDisplay}</span>
           </a>
           <button type="button" className="sbtn sbtn--accent sbtn--sm header__cta" onClick={book}>
-            Записаться
+            Book now
           </button>
           <button
             ref={toggleRef}
@@ -105,7 +105,7 @@ export function Header() {
             className="burger"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+            aria-label={open ? 'Close menu' : 'Open menu'}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <IconClose /> : <IconMenu />}
@@ -114,7 +114,7 @@ export function Header() {
       </div>
 
       <div id="mobile-menu" className="mmenu" aria-hidden={!open} inert={!open}>
-        <nav aria-label="Мобильная навигация" className="container mmenu__in">
+        <nav aria-label="Mobile navigation" className="container mmenu__in">
           <ul className="mmenu__list">
             {NAV.map((item, i) => (
               <li key={item.id} style={{ '--i': i } as CSSProperties}>
@@ -131,13 +131,13 @@ export function Header() {
           </ul>
           <div className="mmenu__foot">
             <button type="button" className="sbtn sbtn--accent sbtn--block" onClick={book}>
-              Записаться на сервис
+              Book a service
             </button>
             <a className="sbtn sbtn--line sbtn--block" href={CONTACTS.phoneHref}>
               <IconPhone size={18} />
               {CONTACTS.phoneDisplay}
             </a>
-            <p className="mmenu__note">Пн–Пт 09:00–19:00, Сб 10:00–16:00</p>
+            <p className="mmenu__note">Mon–Fri 09:00–19:00, Sat 10:00–16:00</p>
           </div>
         </nav>
       </div>

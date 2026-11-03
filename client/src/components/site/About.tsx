@@ -37,20 +37,20 @@ export function About() {
         <Reveal className="about__media">
           <Photo
             name="about"
-            alt="Чёрный спортивный автомобиль в сервисном боксе"
+            alt="Black sports car in a service bay"
             ratio={0.78}
             max={1600}
             sizes="(min-width: 1080px) 40vw, 100vw"
             className="about__photo"
           />
-          <p className="about__caption">Каждый автомобиль проходит приёмку с фотофиксацией состояния.</p>
+          <p className="about__caption">Every car is checked in with photos of its condition.</p>
         </Reveal>
 
         <div className="about__copy">
           <Reveal className="shead shead--left">
-            <h2 id="about-title" className="shead__title">Почему выбирают нас</h2>
+            <h2 id="about-title" className="shead__title">Why choose us</h2>
             <p className="shead__lead">
-              Мы не меняем детали «на всякий случай». Сначала находим причину, затем объясняем, что нужно сделать, и только потом берёмся за ключи.
+              We don’t replace parts "just in case". First we find the cause, then explain what needs to be done, and only then pick up the tools.
             </p>
           </Reveal>
 
@@ -76,7 +76,7 @@ export function About() {
               <Fact key={f.label} {...f} run={visible} />
             ))}
           </ul>
-          <p className="facts__note">Характеристики демонстрационной компании, а не данные реального сервиса.</p>
+          <p className="facts__note">Figures of a fictional demo company, not data of a real business.</p>
         </div>
       </div>
     </section>

@@ -38,7 +38,7 @@ export const SERVICE_ICONS: Record<ServiceIcon, ComponentType<{ size?: number }>
 /** Ритм сетки: крупные карточки чередуются с компактными, чтобы раздел не был «плиткой» */
 const LAYOUT: ('feature' | 'wide' | 'tile')[] = ['feature', 'wide', 'tile', 'tile', 'tile', 'wide', 'feature', 'tile', 'tile', 'tile'];
 
-const price = (s: Service) => (s.priceFrom ? `от ${s.priceFrom.toLocaleString('ru-RU')} ${CURRENCY}` : 'после диагностики');
+const price = (s: Service) => (s.priceFrom ? `from ${s.priceFrom.toLocaleString('en-US')} ${CURRENCY}` : 'after diagnostics');
 
 function ServiceCard({ s, variant, index, onOpen }: { s: Service; variant: (typeof LAYOUT)[number]; index: number; onOpen: () => void }) {
   const Icon = SERVICE_ICONS[s.icon];
@@ -67,9 +67,9 @@ function ServiceCard({ s, variant, index, onOpen }: { s: Service; variant: (type
                 e.stopPropagation();
                 onOpen();
               }}
-              aria-label={`Подробнее: ${s.title}`}
+              aria-label={`Details: ${s.title}`}
             >
-              Подробнее
+              Details
               <IconArrow size={16} />
             </button>
           </div>
@@ -87,9 +87,9 @@ export function Services() {
     <section id="services" className="section section--base" aria-labelledby="services-title">
       <div className="container">
         <Reveal className="shead">
-          <h2 id="services-title" className="shead__title">Услуги сервиса</h2>
+          <h2 id="services-title" className="shead__title">Our services</h2>
           <p className="shead__lead">
-            Десять направлений — от диагностики до комплексного ТО. Сроки ориентировочные: точный называем после осмотра автомобиля.
+            Ten service areas, from diagnostics to full maintenance. Times are estimates; we confirm the exact time after inspecting your car.
           </p>
         </Reveal>
 
@@ -109,21 +109,21 @@ export function Services() {
               <p className="svcm__lead">{current.details}</p>
               <dl className="svcm__facts">
                 <div>
-                  <dt>Срок</dt>
+                  <dt>Time</dt>
                   <dd>{current.duration}</dd>
                 </div>
                 <div>
-                  <dt>Стоимость</dt>
+                  <dt>Price</dt>
                   <dd>{price(current)}</dd>
                 </div>
               </dl>
-              <h3 className="svcm__h">Что входит</h3>
+              <h3 className="svcm__h">What’s included</h3>
               <ul className="svcm__list">
                 {current.includes.map((x) => (
                   <li key={x}><IconCheck size={18} /> {x}</li>
                 ))}
               </ul>
-              <p className="svcm__fine">Цены и сроки демонстрационные. Итоговая смета — после осмотра автомобиля.</p>
+              <p className="svcm__fine">Prices and times are for demo purposes. The final estimate is given after inspecting the car.</p>
               <div className="svcm__actions">
                 <button
                   type="button"
@@ -134,10 +134,10 @@ export function Services() {
                     window.setTimeout(() => requestBooking({ service: id }), 260);
                   }}
                 >
-                  Записаться на эту услугу
+                  Book this service
                 </button>
                 <button type="button" className="sbtn sbtn--line" onClick={() => setOpenId(null)}>
-                  Закрыть
+                  Close
                 </button>
               </div>
             </div>

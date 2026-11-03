@@ -4,12 +4,12 @@ import { IconArrowDown, IconScan, IconShield, IconTeam } from '../Icons';
 import { Photo } from '../Photo';
 
 const POINTS = [
-  { icon: IconTeam, title: 'Опыт', text: 'Мастера с профильной специализацией' },
-  { icon: IconShield, title: 'Гарантия', text: '12 месяцев на выполненные работы' },
-  { icon: IconScan, title: 'Оборудование', text: 'Дилерские сканеры и 3D-стенд' },
+  { icon: IconTeam, title: 'Experience', text: 'Technicians specialized by system' },
+  { icon: IconShield, title: 'Warranty', text: '12 months on completed work' },
+  { icon: IconScan, title: 'Equipment', text: 'Dealer-level scanners and a 3D alignment rig' },
 ];
 
-const WORDS = ['Точность.', 'Надёжность.', 'Совершенство.'];
+const WORDS = ['Precision.', 'Reliability.', 'Excellence.'];
 
 export function Hero() {
   const media = useParallax<HTMLDivElement>(0.22);
@@ -18,7 +18,7 @@ export function Hero() {
       <div className="hero__media" ref={media}>
         <Photo
           name="hero"
-          alt="Автомобили на постах в профессиональном сервисном боксе"
+          alt="Cars on lifts in a professional service bay"
           sizes="100vw"
           eager
           className="hero__photo"
@@ -30,7 +30,7 @@ export function Hero() {
         <div className="hero__copy">
           <p className="hero__kicker">
             <span className="hero__rule" aria-hidden="true" />
-            Сервисный центр в Киеве
+            Car service center in Kyiv
           </p>
           <h1 id="hero-title" className="hero__title">
             {WORDS.map((w, i) => (
@@ -40,20 +40,20 @@ export function Hero() {
             ))}
           </h1>
           <p className="hero__lead">
-            Профессиональное обслуживание автомобилей с вниманием к каждой детали. Современное оборудование, опытные мастера и качество, которому можно доверять.
+            Professional car care with attention to every detail. Modern equipment, experienced technicians and quality you can trust.
           </p>
           <div className="hero__actions">
             <button type="button" className="sbtn sbtn--accent sbtn--lg" onClick={() => requestBooking()}>
-              Записаться на сервис
+              Book a service
             </button>
             <button type="button" className="sbtn sbtn--glass sbtn--lg" onClick={() => scrollToSection('services')}>
-              Наши услуги
+              Our services
               <IconArrowDown size={18} />
             </button>
           </div>
         </div>
 
-        <ul className="hero__points" aria-label="Преимущества">
+        <ul className="hero__points" aria-label="Advantages">
           {POINTS.map(({ icon: Icon, title, text }) => (
             <li key={title} className="hero__point">
               <Icon size={22} />
